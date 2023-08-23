@@ -116,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
             Flip();
         }
 
-        if (rb.velocity.x != 0)
+        if (Mathf.Abs(rb.velocity.x) >= 0.01f)
         {
             isWalking = true;
         }
@@ -338,6 +338,21 @@ public class PlayerMovement : MonoBehaviour
             wallJumpTimer = wallJumpTimerSet;
             lastWallJumpDirection = -facingDirection;
         }
+    }
+
+    public int GetFacingDirection()
+    {
+        return facingDirection;
+    }
+
+    private void DisableFlip()
+    {
+        canFlip = false;
+    }
+
+    private void EnableFlip()
+    {
+        canFlip = true;
     }
 
     private void Flip()
