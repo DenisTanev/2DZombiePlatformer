@@ -6,6 +6,7 @@ public class CombatDummyController : MonoBehaviour
 {
     [SerializeField] private float maxHealth, knockbackSpeedX, knockbackSpeedY, knockbackDuration, knockbackDeathSpeedX, knockbackDeathSpeedY, deathTorque;
     [SerializeField] private bool applyKnockback;
+    [SerializeField] private GameObject hitParticle;
 
     private float currentHealth, knockbackStart;
 
@@ -47,6 +48,8 @@ public class CombatDummyController : MonoBehaviour
     {
         currentHealth -= amount;
         playerFacingDirection = pm.GetFacingDirection();
+
+        Instantiate(hitParticle, aliveGO.transform.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f)));
 
         if (playerFacingDirection == 1)
         {

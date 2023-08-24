@@ -541,3 +541,4 @@ MonoBehaviour:
   knockbackDeathSpeedY: 8
   deathTorque: 1
   applyKnockback: 1
+  hitParticle: {fileID: 8145498743675444441, guid: 2fffb4a1931cd54449fd9418c9008344, type: 3}
