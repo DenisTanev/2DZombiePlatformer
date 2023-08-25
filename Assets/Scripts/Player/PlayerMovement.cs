@@ -34,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
     private float dashTimeLeft;
     private float lastImageXpos;
     private float lastDash = -100f;
+    private bool knockback;
+    private float knockbackStartTime;
+    
 
 
 
@@ -62,6 +65,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] int amountOfJumps = 2;
     [SerializeField] float movementSpeed = 10f;
     [SerializeField] float jumpForce = 16f;
+    [SerializeField] private float knockbackDuration;
+    [SerializeField] private Vector2 knockbackSpeed;
 
 
     void Start()
@@ -83,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         CheckIfWallSliding();
         CheckJump();
         CheckDash();
+        CheckKnockback();
     }
 
     private void FixedUpdate()
@@ -213,6 +219,22 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void Knockback(int direction)
+    {
+        knockback = true;
+        knockbackStartTime = Time.time;
+        rb.velocity = new Vector2(knockbackSpeed.x * direction, knockbackSpeed.y);
+    }
+
+    private void CheckKnockback()
+    {
+        if (Time.time >= knockbackStartTime + knockbackDuration && knockback)
+        {
+            knockback = false;
+            rb.velocity = new Vector2(0.0f, rb.velocity.y);
+        }
+    }
+
     private void CheckIfCanJump()
     {
         if (isGrounded && rb.velocity.y <= 0.01f)
@@ -286,11 +308,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyMovement()
     {
-        if (!isGrounded && !isWallSliding && movementInputDirection == 0)
+        if (!isGrounded && !isWallSliding && movementInputDirection == 0 && !knockback)
         {
             rb.velocity = new Vector2(rb.velocity.x * airDragMultiplier, rb.velocity.y);
         }
-        else if(canMove)
+        else if(canMove && !knockback)
         {
             rb.velocity = new Vector2(movementSpeed * movementInputDirection, rb.velocity.y);
         }
@@ -343,6 +365,11 @@ public class PlayerMovement : MonoBehaviour
         return facingDirection;
     }
 
+    public bool GetDashStatus()
+    {
+        return isDashing;
+    }
+
     private void DisableFlip()
     {
         canFlip = false;
@@ -355,7 +382,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
-        if (!isWallSliding && canFlip)
+        if (!isWallSliding && canFlip && !knockback)
         {
             facingDirection *= -1;
             isFacingRight = !isFacingRight;
