@@ -40,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform groundCheck;
     public Transform wallCheck;
-    public Transform ledgeCheck;
     public float groundCheckRadius;
     public LayerMask whatIsGround;
     public float wallCheckDistance;
