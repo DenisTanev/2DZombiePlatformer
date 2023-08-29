@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 46277197}
   m_Layer: 7
-  m_Name: GroundCheck
+  m_Name: LedgeCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95581,7 +95581,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 4
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2231e9e9904b8a44ea3eb14294869a4d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -95633,7 +95633,7 @@ SpriteRenderer:
   m_SortingLayerID: 1145332351
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -341195380, guid: 1aa08c03d110c704bba5659f3c4c96dc, type: 3}
+  m_Sprite: {fileID: -1107806470, guid: a9a9be6e14d69cb48948ba1bc19c457d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103049,7 +103049,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 537423685}
-  - component: {fileID: 537423684}
+  - component: {fileID: 537423686}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
@@ -103057,40 +103057,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &537423684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 537423683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09a48a3dc628bc74c8d7dbfdf352b72a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundCheck: {fileID: 46277197}
-  wallCheck: {fileID: 813957700}
-  touchDamageCheck: {fileID: 1608020470}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 512
-  groundCheckDistance: 0.5
-  wallCheckDistance: 0.1
-  movementSpeed: 3
-  maxHealth: 30
-  knockbackDuration: 0.1
-  touchDamageCooldown: 0.2
-  touchDamage: 10
-  touchDamageWidth: 1.5
-  touchDamageHeight: 0.9
-  knockbackSpeed: {x: 10, y: 5}
-  hitParticle: {fileID: 8145498743675444441, guid: f3b53e97a1d3ec44bab9cb60fa4ea17c, type: 3}
-  deathChunkParticle: {fileID: 3831702959785679587, guid: 498a1fbd1ec400546a2461420615fae0, type: 3}
-  deathBloodParticle: {fileID: 3840902951135220383, guid: 0314af9543f9dcb40ae4b2e20e288bd4, type: 3}
 --- !u!4 &537423685
 Transform:
   m_ObjectHideFlags: 0
@@ -103100,13 +103066,30 @@ Transform:
   m_GameObject: {fileID: 537423683}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.65, y: 10.09, z: 0}
+  m_LocalPosition: {x: 5.65, y: 9.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 413230483}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &537423686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537423683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9158cf6fec82bbc42923c9ba89c7b422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityData: {fileID: 11400000, guid: f5d26974fa57ffc4fa131e9928518c63, type: 2}
+  wallCheck: {fileID: 813957700}
+  ledgeCheck: {fileID: 46277197}
+  idleStateData: {fileID: 11400000, guid: 5b86c0c3b85adfd4aa3eec3f4a25606b, type: 2}
+  moveStateData: {fileID: 11400000, guid: 7f97f57b01d8b2148a7bb4bacedd183d, type: 2}
 --- !u!1 &568932905
 GameObject:
   m_ObjectHideFlags: 0
