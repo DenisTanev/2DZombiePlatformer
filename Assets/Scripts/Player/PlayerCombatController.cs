@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class PlayerCombatController : MonoBehaviour
 {
-    [SerializeField]
-    private bool combatEnabled;
-    [SerializeField]
-    private float inputTimer, attack1Radius, attack1Damage;
-    [SerializeField]
-    private Transform attack1HitBoxPos;
-    [SerializeField]
-    private LayerMask whatIsDamageable;
+    [SerializeField] private bool combatEnabled;
+
+    [SerializeField] private float inputTimer, attack1Radius, attack1Damage;
+
+    [SerializeField] private Transform attack1HitBoxPos;
+
+    [SerializeField] private LayerMask whatIsDamageable;
+
+    [SerializeField] private float stunDamageAmount = 1f;
+
 
     private bool gotInput, isAttacking, isFirstAttack;
 
@@ -78,6 +80,7 @@ public class PlayerCombatController : MonoBehaviour
 
         attackDetails.damageAmount = attack1Damage;
         attackDetails.position = transform.position;
+        attackDetails.stunDamageAmount = stunDamageAmount;
 
         foreach (Collider2D collider in detectedObjects)
         {
