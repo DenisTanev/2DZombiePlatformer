@@ -19,6 +19,8 @@ public class CombatDummyController : MonoBehaviour
     private Rigidbody2D rbAlive, rbBrokenTop, rbBrokenBot;
     private Animator aliveAnim;
 
+    private AttackDetails attackDetails;
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -44,11 +46,11 @@ public class CombatDummyController : MonoBehaviour
         CheckKnockback();
     }
 
-    private void Damage(float[] attackDetails)
+    private void Damage(AttackDetails attackDetails)
     {
-        currentHealth -= attackDetails[0];
+        currentHealth -= attackDetails.damageAmount;
 
-        if (attackDetails[1] < aliveGO.transform.position.x)
+        if (attackDetails.position.x < aliveGO.transform.position.x)
         {
             playerFacingDirection = 1;
         }
