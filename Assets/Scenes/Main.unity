@@ -164,7 +164,10 @@ MonoBehaviour:
   lookForPlayerStateData: {fileID: 11400000, guid: 9b065c9ab5a53424c8d3f67dcc00c0ef, type: 2}
   stunStateData: {fileID: 11400000, guid: c2128f8b0fcfb5e44a092e8cbebd3e54, type: 2}
   deadStateData: {fileID: 11400000, guid: 8652f6f2a484fb941b1235a74621a60d, type: 2}
+  dodgeStateData: {fileID: 11400000, guid: 147620f830b30fb4ba3fe96fbfa7bec3, type: 2}
+  rangedAttackStateData: {fileID: 11400000, guid: 0db23fb5a188ce04eaa40736e4728b90, type: 2}
   meleeAttackPosition: {fileID: 1282015060}
+  rangedAttackPosition: {fileID: 640456847}
 --- !u!4 &67190712
 Transform:
   m_ObjectHideFlags: 0
@@ -174,7 +177,7 @@ Transform:
   m_GameObject: {fileID: 67190710}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.99, y: 10.36, z: 0}
+  m_LocalPosition: {x: -15.52, y: 10.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -102917,6 +102920,37 @@ Transform:
   - {fileID: 900017885}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &640456846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 640456847}
+  m_Layer: 7
+  m_Name: RangedAttackPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &640456847
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640456846}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.34, y: -0.08, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1403787185}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &687886722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103478,7 +103512,7 @@ Transform:
   m_GameObject: {fileID: 1282015059}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.99, y: -0.24, z: 0}
+  m_LocalPosition: {x: 0.82, y: -0.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -103523,6 +103557,7 @@ Transform:
   - {fileID: 2029271939}
   - {fileID: 1653118993}
   - {fileID: 1282015060}
+  - {fileID: 640456847}
   m_Father: {fileID: 67190712}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1403787186
@@ -103840,7 +103875,7 @@ Transform:
   m_GameObject: {fileID: 1653118992}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.008, y: -0.914, z: 0}
+  m_LocalPosition: {x: -0.113, y: -0.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

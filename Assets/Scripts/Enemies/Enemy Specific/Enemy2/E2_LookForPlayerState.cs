@@ -33,7 +33,7 @@ public class E2_LookForPlayerState : LookForPlayerState
         {
             stateMachine.ChangeState(enemy.playerDetectedState);
         }
-        else if (isAllTurnsDone)
+        else if (isAllTurnsTimeDone)
         {
             stateMachine.ChangeState(enemy.moveState);
         }
