@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Grab",
+                    "type": "Button",
+                    "id": "bca91c7f-b7ad-4850-ac6d-5bdfee819062",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -37,8 +46,8 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "ASD",
-                    "id": "0c900803-d583-4e87-9355-df72a9e39e46",
+                    "name": "WASD",
+                    "id": "beba9a32-61d1-4eba-b5d9-3ae937fb9b57",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -48,34 +57,45 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "up",
+                    "id": "b5acf121-345a-4bcb-acb6-46453e5de9c9",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "down",
-                    "id": "a087cdd3-be0e-40bf-a1c5-43170f697437",
+                    "id": "bd1237b1-9f06-4211-a97b-fd6e533cd1da",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
-                    "id": "4ed67fb5-a4fe-4d57-be66-a23bd28980bd",
+                    "id": "1e1d6d14-954a-4e17-978e-4ecf359451a9",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
-                    "id": "697fdb94-e391-4031-ba90-bd4b9aeb34b0",
+                    "id": "765b9e18-a816-4a85-bc5c-286dc2e6aa6b",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -83,7 +103,7 @@
                 {
                     "name": "",
                     "id": "5ab18413-c59d-4251-8c44-d5c434c92c29",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -99,6 +119,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7cf4104b-c5cb-492d-84c9-2c5acc0a036a",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8cab0e59-2f5c-40a6-a264-a1614143ae05",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
