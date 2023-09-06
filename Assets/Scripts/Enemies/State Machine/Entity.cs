@@ -19,10 +19,11 @@ public class Entity : MonoBehaviour
     public AnimationToStateMachine atsm { get; private set; }
 
     [SerializeField] private Transform wallCheck, ledgeCheck, playerCheck, groundCheck;
+    [SerializeField] FloatingHealthBar healthBar;
 
     private Vector2 velocityWorkspace;
 
-    private float currentHealth;
+    public float currentHealth;
     private float currentStunResistance;
     private float lastDamageTime;
 
@@ -40,6 +41,9 @@ public class Entity : MonoBehaviour
         rb = aliveGO.GetComponent<Rigidbody2D>();
         anim = aliveGO.GetComponent<Animator>();
         atsm = aliveGO.GetComponent<AnimationToStateMachine>();
+
+        healthBar = GetComponentInChildren<FloatingHealthBar>();
+        healthBar.UpdateHealthBar(currentHealth, entityData.maxHealth);
 
         stateMachine = new FiniteStateMachine();
     }
@@ -122,6 +126,8 @@ public class Entity : MonoBehaviour
 
         currentHealth -= attackDetails.damageAmount;
         currentStunResistance -= attackDetails.stunDamageAmount;
+
+        healthBar.UpdateHealthBar(currentHealth, entityData.maxHealth);
 
         DamageHop(entityData.damageHopSpeed);
 
