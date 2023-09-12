@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCombatController : MonoBehaviour
+/*public class PlayerCombatController : MonoBehaviour
 {
     [SerializeField] private bool combatEnabled;
 
@@ -122,4 +122,4 @@ public class PlayerCombatController : MonoBehaviour
         Gizmos.DrawWireSphere(attack1HitBoxPos.position, attack1Radius);
     }
 
-}
+}*/

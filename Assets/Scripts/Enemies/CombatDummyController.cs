@@ -19,8 +19,6 @@ public class CombatDummyController : MonoBehaviour
     private Rigidbody2D rbAlive, rbBrokenTop, rbBrokenBot;
     private Animator aliveAnim;
 
-    private AttackDetails attackDetails;
-
     private void Start()
     {
         currentHealth = maxHealth;
@@ -44,44 +42,6 @@ public class CombatDummyController : MonoBehaviour
     private void Update()
     {
         CheckKnockback();
-    }
-
-    private void Damage(AttackDetails attackDetails)
-    {
-        currentHealth -= attackDetails.damageAmount;
-
-        if (attackDetails.position.x < aliveGO.transform.position.x)
-        {
-            playerFacingDirection = 1;
-        }
-        else
-        {
-            playerFacingDirection = -1;
-        }
-
-        Instantiate(hitParticle, aliveGO.transform.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f)));
-
-        if (playerFacingDirection == 1)
-        {
-            playerOnLeft = true;
-        }
-        else
-        {
-            playerOnLeft = false;
-        }
-
-        aliveAnim.SetBool("PlayerOnLeft", playerOnLeft);
-        aliveAnim.SetTrigger("Damage");
-
-        if (applyKnockback && currentHealth > 0.0f)
-        {
-            Knockback();
-        }
-
-        if (currentHealth <= 0.0f)
-        {
-            Die();
-        }
     }
 
     private void Knockback()

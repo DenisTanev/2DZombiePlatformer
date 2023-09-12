@@ -27,7 +27,7 @@ public class PlayerGroundedState : PlayerState
 
         isGrounded = core.CollisionSenses.Ground;
         isTouchingWall = core.CollisionSenses.WallFront;
-        isTouchingLedge = core.CollisionSenses.Ledge;
+        isTouchingLedge = core.CollisionSenses.LedgeHorizontal;
         isTouchingCeiling = core.CollisionSenses.Ceiling;
     }
 
@@ -62,7 +62,7 @@ public class PlayerGroundedState : PlayerState
         {
             stateMachine.ChangeState(player.SecondaryAttackState);
         }
-        else if (JumpInput && player.JumpState.CanJump())
+        else if (JumpInput && player.JumpState.CanJump() && !isTouchingCeiling)
         {
             stateMachine.ChangeState(player.JumpState);
         }
