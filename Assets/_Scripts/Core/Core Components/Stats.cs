@@ -4,40 +4,43 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class Stats : CoreComponent
+namespace _Scripts.Core
 {
-    public event Action OnHealthZero;
-
-    [SerializeField] private float maxHealth;
-    [SerializeField] FloatingHealthBar healthBar;
-
-    private float currentHealth;
-
-    protected override void Awake()
+    public class Stats : CoreComponent
     {
-        base.Awake();
+        public event Action OnHealthZero;
 
-        currentHealth = maxHealth;
+        [SerializeField] private float maxHealth;
+        [SerializeField] FloatingHealthBar healthBar;
 
-        healthBar = GetComponentInChildren<FloatingHealthBar>();
-        healthBar.UpdateHealthBar(currentHealth, maxHealth);
-    }
+        private float currentHealth;
 
-    public void DecreaseHealth(float amount)
-    {
-        currentHealth -= amount;
-        healthBar.UpdateHealthBar(currentHealth, maxHealth);
-
-        if (currentHealth <= 0)
+        protected override void Awake()
         {
-            currentHealth = 0;
+            base.Awake();
 
-            OnHealthZero?.Invoke();
+            currentHealth = maxHealth;
+
+            healthBar = GetComponentInChildren<FloatingHealthBar>();
+            healthBar.UpdateHealthBar(currentHealth, maxHealth);
         }
-    }
 
-    public void IncreaseHealth(float amount)
-    {
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        public void DecreaseHealth(float amount)
+        {
+            currentHealth -= amount;
+            healthBar.UpdateHealthBar(currentHealth, maxHealth);
+
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+
+                OnHealthZero?.Invoke();
+            }
+        }
+
+        public void IncreaseHealth(float amount)
+        {
+            currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        }
     }
 }

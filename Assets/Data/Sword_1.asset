@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: Sword_1
   m_EditorClassIdentifier: 
   <NumberOfAttacks>k__BackingField: 3
-  <componentData>k__BackingField:
-  - rid: 8913386026995548160
+  <ComponentData>k__BackingField:
+  - rid: 8913386039090085891
+  - rid: 8913386039090085893
   references:
     version: 2
     RefIds:
-    - rid: 8913386026995548160
+    - rid: 8913386039090085891
       type: {class: WeaponSpriteData, ns: _Scripts.Weapons.Components.ComponentData, asm: Assembly-CSharp}
       data:
         <AttackData>k__BackingField:
@@ -40,3 +41,13 @@ MonoBehaviour:
           - {fileID: 1796439986, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
           - {fileID: -1095232592, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
           - {fileID: -2009401193, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
+    - rid: 8913386039090085893
+      type: {class: MovementData, ns: _Scripts.Weapons.Components.ComponentData, asm: Assembly-CSharp}
+      data:
+        <AttackData>k__BackingField:
+        - <Direction>k__BackingField: {x: 1, y: 0}
+          <Velocity>k__BackingField: 3
+        - <Direction>k__BackingField: {x: 1, y: 0}
+          <Velocity>k__BackingField: 4
+        - <Direction>k__BackingField: {x: 1, y: 5}
+          <Velocity>k__BackingField: 5
