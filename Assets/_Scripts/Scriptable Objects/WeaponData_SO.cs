@@ -1,4 +1,4 @@
-using _Scripts.Weapons.Components.ComponentData;
+using _Scripts.Weapons.Components;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;

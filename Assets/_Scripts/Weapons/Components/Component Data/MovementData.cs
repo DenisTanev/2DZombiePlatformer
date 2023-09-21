@@ -1,9 +1,9 @@
-using _Scripts.Weapons.Components.ComponentData.AttackData;
+using _Scripts.Weapons.Components;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace _Scripts.Weapons.Components.ComponentData
+namespace _Scripts.Weapons.Components
 {
     public class MovementData : ComponentData
     {
