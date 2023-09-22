@@ -8,7 +8,7 @@ namespace _Scripts.Weapons.Components
 {
     public class ActionHitBox : WeaponComponent<ActionHitBoxData, AttackActionHitBox>
     {
-        private event Action<Collider2D[]> OnDetectedCollider2D;
+        public event Action<Collider2D[]> OnDetectedCollider2D;
 
         private CoreComp<Core.Movement> movement;
 
@@ -29,11 +29,6 @@ namespace _Scripts.Weapons.Components
                 return;
 
             OnDetectedCollider2D?.Invoke(detected);
-
-            foreach (var item in detected)
-            {
-                Debug.Log(item.name);
-            }
         }
 
         protected override void Start()

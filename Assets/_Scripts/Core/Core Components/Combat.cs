@@ -4,51 +4,44 @@ using UnityEngine;
 
 namespace _Scripts.Core
 {
-    public class Combat : CoreComponent, IDamagable, IKnockbackable
+    public class KnockBackReciever : CoreComponent, IKnockbackable
     {
-        [SerializeField] private GameObject damageParticles;
+        [SerializeField] private float maxKnockBackTime = 0.2f;
 
-        private Movement Movement { get => movement ?? core.GetCoreComponent(ref movement); }
-        private CollisionSenses CollisionSenses { get => collisionSenses ?? core.GetCoreComponent(ref collisionSenses); }
-        private Stats Stats { get => stats ?? core.GetCoreComponent(ref stats); }
-        private ParticleManager ParticleManager { get => particleManager ?? core.GetCoreComponent(ref particleManager); }
+        private bool isKnockBackActive;
+        private float knockBackStartTime;
 
-        private Movement movement;
-        private CollisionSenses collisionSenses;
-        private Stats stats;
-        private ParticleManager particleManager;
-
-        [SerializeField] private float maxKnockbackTime = 0.2f;
-
-        private bool isKnockbackActive;
-        private float knockbackStartTime;
+        private CoreComp<Movement> movement;
+        private CoreComp<CollisionSenses> collisionSenses;
 
         public override void LogicUpdate()
         {
-            CheckKnockback();
-        }
-
-        public void Damage(float amount)
-        {
-            Stats?.DecreaseHealth(amount);
-            ParticleManager?.StartParticlesWithRandomRotation(damageParticles);
+            CheckKnockBack();
         }
 
         public void Knockback(Vector2 angle, float strength, int direction)
         {
-            Movement?.SetVelocity(strength, angle, direction);
-            Movement.CanSetVelocity = false;
-            isKnockbackActive = true;
-            knockbackStartTime = Time.time;
+            movement.Comp?.SetVelocity(strength, angle, direction);
+            movement.Comp.CanSetVelocity = false;
+            isKnockBackActive = true;
+            knockBackStartTime = Time.time;
         }
 
-        private void CheckKnockback()
+        private void CheckKnockBack()
         {
-            if (isKnockbackActive && ((Movement.CurrentVelocity.y < 0.01f && CollisionSenses.Ground) || Time.time >= knockbackStartTime + maxKnockbackTime))
+            if (isKnockBackActive && ((movement.Comp.CurrentVelocity.y < 0.01f && collisionSenses.Comp.Ground) || Time.time >= knockBackStartTime + maxKnockBackTime))
             {
-                isKnockbackActive = false;
-                Movement.CanSetVelocity = true;
+                isKnockBackActive = false;
+                movement.Comp.CanSetVelocity = true;
             }
+        }
+
+        protected override void Awake()
+        {
+            base.Awake();
+
+            movement = new CoreComp<Movement>(core);
+            collisionSenses = new CoreComp<CollisionSenses>(core);
         }
     }
 }
