@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using _Scripts.Core;
+using _Scripts.Interfaces;
 
 public class MeleeAttackState : AttackState
 {

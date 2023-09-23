@@ -3,15 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using _Scripts.Core.StatsSystem;
 
 namespace _Scripts.Core
 {
     public class Stats : CoreComponent
     {
-        public event Action OnHealthZero;
+        [field: SerializeField] public Stat Health { get; private set; }
+        [field: SerializeField] public Stat Poise { get; private set; }
 
-        [SerializeField] private float maxHealth;
-        [SerializeField] FloatingHealthBar healthBar;
+        [SerializeField] public FloatingHealthBar HealthBar { get; private set; }
+
+        [SerializeField] private float poiseRecoveryRate;
 
         private float currentHealth;
 
@@ -19,28 +22,18 @@ namespace _Scripts.Core
         {
             base.Awake();
 
-            currentHealth = maxHealth;
+            Health.Init();
+            Poise.Init();
 
-            healthBar = GetComponentInChildren<FloatingHealthBar>();
-            healthBar.UpdateHealthBar(currentHealth, maxHealth);
+            HealthBar = GetComponentInChildren<FloatingHealthBar>();
+            HealthBar.UpdateHealthBar(Health.CurrentValue, Health.MaxValue);
         }
-
-        public void DecreaseHealth(float amount)
+        private void Update()
         {
-            currentHealth -= amount;
-            healthBar.UpdateHealthBar(currentHealth, maxHealth);
+            if (Poise.CurrentValue.Equals(Poise.MaxValue))
+                return;
 
-            if (currentHealth <= 0)
-            {
-                currentHealth = 0;
-
-                OnHealthZero?.Invoke();
-            }
-        }
-
-        public void IncreaseHealth(float amount)
-        {
-            currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+            Poise.Increase(poiseRecoveryRate * Time.deltaTime);
         }
     }
 }

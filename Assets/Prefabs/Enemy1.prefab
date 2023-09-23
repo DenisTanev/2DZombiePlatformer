@@ -382,8 +382,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee601f9ec6c39c4790b14603442f50c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 40
-  healthBar: {fileID: 0}
+  <Health>k__BackingField:
+    <MaxValue>k__BackingField: 60
+  <Poise>k__BackingField:
+    <MaxValue>k__BackingField: 25
+  poiseRecoveryRate: 5
 --- !u!1 &5348813013659729302
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,7 +646,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4186837800881479783}
   - component: {fileID: 5392470040902556729}
+  - component: {fileID: 5345585503903819388}
   - component: {fileID: 7929996764533973876}
+  - component: {fileID: 4432776885901872442}
   m_Layer: 7
   m_Name: Combat
   m_TagString: Untagged
@@ -678,8 +683,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e680021cb9ed3584196d553ef5e6e79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxKnockBackTime: 0.2
+--- !u!114 &5345585503903819388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5616352249525478366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2558b2ac50dbda34d836d229fec60395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   damageParticles: {fileID: 8145498743675444441, guid: f3b53e97a1d3ec44bab9cb60fa4ea17c, type: 3}
-  maxKnockbackTime: 0.2
 --- !u!61 &7929996764533973876
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -725,6 +742,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9608026, y: 1.5727863}
   m_EdgeRadius: 0
+--- !u!114 &4432776885901872442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5616352249525478366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d72e66e344edba14aa9d01c9ff2ff986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5623381236666265181
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,7 +1017,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9100595932301646918}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.63, y: -3.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

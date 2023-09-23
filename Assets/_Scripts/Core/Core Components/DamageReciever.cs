@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using _Scripts.Interfaces;
 
 namespace _Scripts.Core
 {
@@ -8,21 +9,22 @@ namespace _Scripts.Core
     {
         [SerializeField] private GameObject damageParticles;
 
-        private CoreComp<Stats> stats;
-        private CoreComp<ParticleManager> particleManager;
+        private Stats stats;
+        private ParticleManager particleManager;
 
         public void Damage(float amount)
         {
-            stats.Comp?.DecreaseHealth(amount);
-            particleManager.Comp?.StartParticlesWithRandomRotation(damageParticles);
+            stats.Health.Decrease(amount);
+            stats.HealthBar.UpdateHealthBar(stats.Health.CurrentValue, stats.Health.MaxValue);
+            particleManager.StartParticlesWithRandomRotation(damageParticles);
         }
 
         protected override void Awake()
         {
             base.Awake();
 
-            stats = new CoreComp<Stats>(core);
-            particleManager = new CoreComp<ParticleManager>(core);
+            stats = core.GetCoreComponent<Stats>();
+            particleManager = core.GetCoreComponent<ParticleManager>();
         }
     }
 }

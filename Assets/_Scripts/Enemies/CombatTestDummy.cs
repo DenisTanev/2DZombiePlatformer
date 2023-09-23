@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using _Scripts.Interfaces;
 
 public class CombatTestDummy : MonoBehaviour, IDamagable
 {
