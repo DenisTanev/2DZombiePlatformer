@@ -8,6 +8,8 @@ namespace _Scripts.Weapons
 {
     public class Weapon : MonoBehaviour
     {
+        public event Action<bool> OnCurrentInputChange;
+
         [SerializeField] private float attackCounterResetCooldown;
 
         public WeaponData_SO Data { get; private set; }
@@ -16,6 +18,19 @@ namespace _Scripts.Weapons
         {
             get => currentAttackCounter;
             private set => currentAttackCounter = value >= Data.NumberOfAttacks ? 0 : value; 
+        }
+
+        public bool CurrentInput
+        {
+            get => currentInput;
+            set
+            {
+                if (currentInput != value)
+                {
+                    currentInput = value;
+                    OnCurrentInputChange?.Invoke(currentInput);
+                }
+            }
         }
 
         public event Action OnEnter;
@@ -30,6 +45,8 @@ namespace _Scripts.Weapons
         private int currentAttackCounter;
 
         private Timer attackCounterResetTimer;
+
+        private bool currentInput;
 
         public void Enter()
         {

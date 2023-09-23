@@ -16,6 +16,7 @@ MonoBehaviour:
   <NumberOfAttacks>k__BackingField: 1
   <ComponentData>k__BackingField:
   - rid: 8913386156395855876
+  - rid: 8913386161734156288
   references:
     version: 2
     RefIds:
@@ -32,10 +33,14 @@ MonoBehaviour:
             - {fileID: -1437003859, guid: 91a6d3159420c594dbdb32795e08d523, type: 3}
           - <Phase>k__BackingField: 1
             <Sprites>k__BackingField:
-            - {fileID: 1414602108, guid: 91a6d3159420c594dbdb32795e08d523, type: 3}
+            - {fileID: -1437003859, guid: 91a6d3159420c594dbdb32795e08d523, type: 3}
           - <Phase>k__BackingField: 2
             <Sprites>k__BackingField:
             - {fileID: 1414602108, guid: 91a6d3159420c594dbdb32795e08d523, type: 3}
             - {fileID: 187492125, guid: 91a6d3159420c594dbdb32795e08d523, type: 3}
             - {fileID: -1077565756, guid: 91a6d3159420c594dbdb32795e08d523, type: 3}
             - {fileID: -94071026, guid: 91a6d3159420c594dbdb32795e08d523, type: 3}
+    - rid: 8913386161734156288
+      type: {class: InputHoldData, ns: _Scripts.Weapons.Components, asm: Assembly-CSharp}
+      data:
+        name: InputHoldData
