@@ -19,8 +19,11 @@ namespace _Scripts.Weapons
 
         private List<Type> componentDependecies = new List<Type>();
 
+        private Animator anim;
+
         private void Start()
         {
+            anim = GetComponentInChildren<Animator>();
             GenerateWeapon(data);
         }
 
@@ -59,6 +62,8 @@ namespace _Scripts.Weapons
             {
                 Destroy(weaponComponent);
             }
+
+            anim.runtimeAnimatorController = data.AnimatorController;
         }
     }
 }

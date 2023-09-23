@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16de052de27e5704189f483bc08592b6, type: 3}
   m_Name: Sword_1
   m_EditorClassIdentifier: 
+  <AnimatorController>k__BackingField: {fileID: 9100000, guid: 0efa6f85af1ed224594521bb900016a5, type: 2}
   <NumberOfAttacks>k__BackingField: 3
   <ComponentData>k__BackingField:
   - rid: 8913386139363311619
@@ -29,26 +30,32 @@ MonoBehaviour:
         name: WeaponSpriteData
         attackData:
         - name: Attack 1
-          <Sprites>k__BackingField:
-          - {fileID: 824352930, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
-          - {fileID: 129257931, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
-          - {fileID: -2143661651, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
-          - {fileID: 1778430803, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
-          - {fileID: 756083412, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
+          <PhaseSprites>k__BackingField:
+          - <Phase>k__BackingField: 2
+            <Sprites>k__BackingField:
+            - {fileID: 824352930, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
+            - {fileID: 129257931, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
+            - {fileID: -2143661651, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
+            - {fileID: 1778430803, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
+            - {fileID: 756083412, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
         - name: Attack 2
-          <Sprites>k__BackingField:
-          - {fileID: 274143943, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
-          - {fileID: 1538247289, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
-          - {fileID: -501863872, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
-          - {fileID: -935810895, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
-          - {fileID: 1902395699, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
+          <PhaseSprites>k__BackingField:
+          - <Phase>k__BackingField: 2
+            <Sprites>k__BackingField:
+            - {fileID: 274143943, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
+            - {fileID: 1538247289, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
+            - {fileID: -501863872, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
+            - {fileID: -935810895, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
+            - {fileID: 1902395699, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
         - name: Attack 3
-          <Sprites>k__BackingField:
-          - {fileID: -1171500798, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
-          - {fileID: -1814730751, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
-          - {fileID: 1796439986, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
-          - {fileID: -1095232592, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
-          - {fileID: -2009401193, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
+          <PhaseSprites>k__BackingField:
+          - <Phase>k__BackingField: 2
+            <Sprites>k__BackingField:
+            - {fileID: -1171500798, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
+            - {fileID: -1814730751, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
+            - {fileID: 1796439986, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
+            - {fileID: -1095232592, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
+            - {fileID: -2009401193, guid: 12a52858626c0574d9bbf7af1c4620f6, type: 3}
     - rid: 8913386139363311620
       type: {class: MovementData, ns: _Scripts.Weapons.Components, asm: Assembly-CSharp}
       data:

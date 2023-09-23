@@ -1184,6 +1184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 2823041445812079541}
+  camera: {fileID: 0}
 --- !u!1 &8711116779282527925
 GameObject:
   m_ObjectHideFlags: 0
