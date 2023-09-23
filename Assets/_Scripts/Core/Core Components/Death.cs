@@ -1,4 +1,5 @@
 using UnityEngine;
+using _Scripts;
 
 namespace _Scripts.Core
 {
@@ -32,5 +33,4 @@ namespace _Scripts.Core
             Stats.Health.OnCurrentValueZero -= Die;
         }
     }
-
 }
